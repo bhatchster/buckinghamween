@@ -757,10 +757,22 @@
       </div>
     </div>
 
+    <script src="https://player.vimeo.com/api/player.js"></script>
     <script>
       (function() {
         var items = [document.getElementById('galleryVideo0'), document.getElementById('galleryVideo1')];
         var current = 0;
+
+        // Set up Vimeo Player API for each iframe to suppress end cards
+        items.forEach(function(el) {
+          if (el.tagName === 'IFRAME') {
+            var player = new Vimeo.Player(el);
+            player.on('ended', function() {
+              player.setCurrentTime(0).then(function() { player.pause(); });
+            });
+          }
+        });
+
         function pauseItem(el) {
           if (el.tagName === 'IFRAME') {
             el.contentWindow.postMessage(JSON.stringify({method:'pause'}), '*');
