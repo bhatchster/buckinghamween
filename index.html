@@ -745,12 +745,9 @@
 
     <div class="gallery-wrap">
       <div class="gallery-stage">
-        <iframe class="gallery-video" id="galleryVideo0"
+        <iframe class="gallery-video" id="galleryVideo"
           src="https://player.vimeo.com/video/1173124085?title=0&byline=0&portrait=0"
           frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-        <iframe class="gallery-video" id="galleryVideo1"
-          src="https://player.vimeo.com/video/1175988572?title=0&byline=0&portrait=0"
-          frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="display:none;"></iframe>
         <button class="gallery-arrow gallery-prev" id="galleryPrev" aria-label="Previous">&#8592;</button>
         <button class="gallery-arrow gallery-next" id="galleryNext" aria-label="Next">&#8594;</button>
         <div class="gallery-counter"><span id="galleryCurrent">1</span> / <span id="galleryTotal">2</span></div>
@@ -760,33 +757,24 @@
     <script src="https://player.vimeo.com/api/player.js"></script>
     <script>
       (function() {
-        var items = [document.getElementById('galleryVideo0'), document.getElementById('galleryVideo1')];
+        var videoIds = [1173124085, 1175988572];
         var current = 0;
+        var iframe = document.getElementById('galleryVideo');
+        var player = new Vimeo.Player(iframe);
 
-        // Set up Vimeo Player API for each iframe to suppress end cards
-        items.forEach(function(el) {
-          if (el.tagName === 'IFRAME') {
-            var player = new Vimeo.Player(el);
-            player.on('ended', function() {
-              player.setCurrentTime(0).then(function() { player.pause(); });
-            });
-          }
+        // Suppress end cards — rewind and pause when video ends
+        player.on('ended', function() {
+          player.setCurrentTime(0).then(function() { player.pause(); });
         });
 
-        function pauseItem(el) {
-          if (el.tagName === 'IFRAME') {
-            el.contentWindow.postMessage(JSON.stringify({method:'pause'}), '*');
-          } else {
-            el.pause();
-          }
-        }
         function show(idx) {
-          pauseItem(items[current]);
-          items[current].style.display = 'none';
-          current = (idx + items.length) % items.length;
-          items[current].style.display = 'block';
+          current = (idx + videoIds.length) % videoIds.length;
+          player.loadVideo(videoIds[current]).catch(function(err) {
+            console.error('Vimeo loadVideo error:', err);
+          });
           document.getElementById('galleryCurrent').textContent = current + 1;
         }
+
         document.getElementById('galleryPrev').addEventListener('click', function() { show(current - 1); });
         document.getElementById('galleryNext').addEventListener('click', function() { show(current + 1); });
       })();
