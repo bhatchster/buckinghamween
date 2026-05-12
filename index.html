@@ -378,6 +378,22 @@
       font-style: italic;
       opacity: 0.7;
     }
+    .setlist-images {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .setlist-image {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      border: 1px solid rgba(200,150,10,0.35);
+      background: #0f0b07;
+      transition: border-color 0.2s;
+    }
+    .setlist-image:hover {
+      border-color: var(--mustard);
+    }
     .past-shows-label {
       margin-top: 3rem;
     }
@@ -873,7 +889,7 @@
       <div class="past-detail">
         <div class="past-gallery" data-gallery="cwa-2026-05-09">
           <div class="past-gallery-stage">
-            <div class="past-gallery-slide active"><div class="past-photo-placeholder">Photo 1 — coming soon</div></div>
+            <div class="past-gallery-slide active"><img src="cawild1.png" alt="California Wild Ales show photo 1" /></div>
             <div class="past-gallery-slide"><div class="past-photo-placeholder">Photo 2 — coming soon</div></div>
             <div class="past-gallery-slide"><div class="past-photo-placeholder">Photo 3 — coming soon</div></div>
             <button class="past-gallery-arrow past-gallery-prev" aria-label="Previous">&#8592;</button>
@@ -883,7 +899,9 @@
         </div>
         <div>
           <p class="setlist-label">Setlist</p>
-          <p class="setlist-empty">Setlist coming soon…</p>
+          <div class="setlist-images">
+            <img src="setlistWildalesIII.jpg" alt="California Wild Ales setlist" class="setlist-image" />
+          </div>
         </div>
       </div>
     </div>
@@ -895,7 +913,7 @@
       <div class="past-detail">
         <div class="past-gallery" data-gallery="otp-2026-01-16">
           <div class="past-gallery-stage">
-            <div class="past-gallery-slide active"><div class="past-photo-placeholder">Photo 1 — coming soon</div></div>
+            <div class="past-gallery-slide active"><img src="oldtowne1.png" alt="Old Towne Pub show photo 1" /></div>
             <div class="past-gallery-slide"><div class="past-photo-placeholder">Photo 2 — coming soon</div></div>
             <div class="past-gallery-slide"><div class="past-photo-placeholder">Photo 3 — coming soon</div></div>
             <button class="past-gallery-arrow past-gallery-prev" aria-label="Previous">&#8592;</button>
@@ -905,7 +923,10 @@
         </div>
         <div>
           <p class="setlist-label">Setlist</p>
-          <p class="setlist-empty">Setlist coming soon…</p>
+          <div class="setlist-images">
+            <img src="setlistOldtowne_1.jpg" alt="Old Towne Pub setlist — page 1" class="setlist-image" />
+            <img src="setlistOldtowne_2.jpg" alt="Old Towne Pub setlist — page 2" class="setlist-image" />
+          </div>
         </div>
       </div>
     </div>
