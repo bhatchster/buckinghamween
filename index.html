@@ -232,6 +232,19 @@
       letter-spacing: 0.2em;
       text-transform: uppercase;
     }
+    /* Placeholder for a ticket link that isn't live yet */
+    .tickets-tba {
+      display: inline-block;
+      font-family: 'Special Elite', cursive;
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--tan);
+      border-bottom: 1px dashed var(--tan);
+      padding-bottom: 2px;
+      opacity: 0.8;
+      cursor: default;
+    }
     /* PAST SHOWS */
     .show-card.past-show .show-date,
     .show-card.past-show .show-venue {
@@ -861,18 +874,6 @@
     <p class="section-label">Upcoming Shows</p>
     <h2>Live Dates</h2>
     <div class="show-card">
-      <img src="golddiggers.jpeg" alt="Gold-Diggers show poster" style="width:100%;display:block;margin-bottom:1.25rem;">
-      <div class="show-date">July 18, 2026</div>
-      <div class="show-venue"><a href="https://gold-diggers.com/pages/drink" target="_blank" style="color:inherit;text-decoration:none;">Gold-Diggers</a></div>
-      <div class="show-location">5500 Santa Monica Blvd · Hollywood, CA</div>
-      <span class="show-tag">Confirmed</span>
-      <div style="margin-top:0.75rem;">
-        <a href="https://link.dice.fm/m9a7beccab60" target="_blank" style="font-family:'Special Elite',cursive;font-size:0.85rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--mustard);text-decoration:none;border-bottom:1px solid var(--mustard);padding-bottom:2px;">
-          Buy Advance Tickets →
-        </a>
-      </div>
-    </div>
-    <div class="show-card">
       <div class="show-date">Saturday, October 3, 2026 · 3–6pm</div>
       <div class="show-venue">Holding Company</div>
       <div class="show-location">Ocean Beach, CA</div>
@@ -883,9 +884,33 @@
         </a>
       </div>
     </div>
+    <div class="show-card">
+      <div class="show-date">Saturday, December 12, 2026</div>
+      <div class="show-venue"><a href="https://gold-diggers.com/pages/drink" target="_blank" style="color:inherit;text-decoration:none;">Gold-Diggers</a></div>
+      <div class="show-location">5632 Santa Monica Blvd · Hollywood, CA</div>
+      <span class="show-tag">Confirmed</span>
+      <div style="margin-top:0.75rem;">
+        <span class="tickets-tba" title="Ticket link coming soon" aria-disabled="true">Tickets TBA</span>
+      </div>
+    </div>
     <p style="margin-top:2rem;font-size:0.85rem;color:var(--tan);font-family:'Special Elite',cursive;letter-spacing:0.1em;">
       More dates to be announced. Follow us on social for updates.
     </p>
+    <p class="section-label past-shows-label">Past Shows</p>
+    <div class="show-card past-show">
+      <img src="golddiggers.jpeg" alt="Gold-Diggers show poster, July 18, 2026" style="width:100%;max-width:340px;display:block;margin-bottom:1.25rem;opacity:0.8;">
+      <div class="show-date">July 18, 2026</div>
+      <div class="show-venue"><a href="https://gold-diggers.com/pages/drink" target="_blank" style="color:inherit;text-decoration:none;">Gold-Diggers</a></div>
+      <div class="show-location">5632 Santa Monica Blvd · Hollywood, CA</div>
+      <span class="show-tag past-tag">Brown Level Achieved</span>
+    </div>
+    <div class="show-card past-show">
+      <img src="cawild1.png" alt="Buckingham Ween performing at California Wild Ales, May 9, 2026" style="width:100%;max-width:340px;display:block;margin-bottom:1.25rem;opacity:0.8;">
+      <div class="show-date">May 9, 2026</div>
+      <div class="show-venue">California Wild Ales</div>
+      <div class="show-location">San Diego, CA</div>
+      <span class="show-tag past-tag">Poop Ship Destroyer Brown Ale Consumed</span>
+    </div>
     <p class="section-label" style="margin-top:2.5rem;">Follow Us</p>
     <div class="social-links">
       <a href="https://www.youtube.com/@BuckinghamWeen" target="_blank">YouTube</a>
